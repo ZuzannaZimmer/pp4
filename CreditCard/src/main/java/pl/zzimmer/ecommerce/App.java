@@ -3,6 +3,7 @@ package pl.zzimmer.ecommerce;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import pl.zzimmer.ecommerce.catalog.ArrayListProductStorage;
 import pl.zzimmer.ecommerce.catalog.ProductCatalog;
 
 @SpringBootApplication
@@ -14,7 +15,7 @@ public class App {
 
     @Bean
     ProductCatalog createMyCatalog(){
-        var catalog = new ProductCatalog();
+        var catalog = new ProductCatalog(new ArrayListProductStorage());
         catalog.addProduct("Lego set 8298", "Nice one");
         catalog.addProduct("cobi bricks", "Nice one");
 
